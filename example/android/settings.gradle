@@ -1,0 +1,6 @@
+rootProject.name = 'BundleLoaderExample'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+
+include ':reactnativebundleloader'
+project(':reactnativebundleloader').projectDir = new File(rootProject.projectDir, '../../android')
