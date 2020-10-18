@@ -2,18 +2,35 @@
 
 @implementation BundleLoader
 
+@synthesize bridge = _bridge;
+
 RCT_EXPORT_MODULE()
 
-// Example method
-// See // https://facebook.github.io/react-native/docs/native-modules-ios
-RCT_REMAP_METHOD(multiply,
-                 multiplyWithA:(nonnull NSNumber*)a withB:(nonnull NSNumber*)b
-                 withResolver:(RCTPromiseResolveBlock)resolve
-                 withRejecter:(RCTPromiseRejectBlock)reject)
+- (void)loadBundle:(NSURL *)url
 {
-  NSNumber *result = @([a floatValue] * [b floatValue]);
-
-  resolve(result);
+  [_bridge setValue:url forKey:@"bundleURL"];
+  [_bridge reload];
 }
+
+RCT_EXPORT_METHOD(
+                  runningMode:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+{
+  NSString *scheme = [[_bridge bundleURL] scheme];
+  BOOL isRemote = [scheme isEqualToString:@"https"];
+  resolve(isRemote ? @"REMOTE" : @"LOCAL");
+}
+
+RCT_EXPORT_METHOD(load:(NSURL*) url) {
+  if ([NSThread isMainThread]) {
+    [self loadBundle:url];
+  } else {
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        [self loadBundle:url];
+    });
+  }
+  return;
+}
+
 
 @end
