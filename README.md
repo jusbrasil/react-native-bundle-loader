@@ -42,6 +42,8 @@ Remember to pass the correct params to the metro server:
 
 Example: `https://example.ngrok.io/index.bundle?dev=false&platform=ios&excludeSource=true`
 
+![image](https://user-images.githubusercontent.com/1201847/96401998-3919bd00-11ab-11eb-960f-18269cb39dbb.png)
+
 
 ## Disclaimer
 
