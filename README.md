@@ -45,6 +45,8 @@ Remember to pass the correct params to the metro server:
 
 Example: `https://example.ngrok.io/index.bundle?dev=false&platform=ios&excludeSource=true`
 
+Every accessing to the metro server will return the updated version of the code :slightly_smiling_face:
+
 ## :warning: Disclaimer
 
 Be careful about publishing binary versions with `react-native-bundle-loader` supporting in the stores. Malicious code could be injected to your app and affect the users. We *strictly* recommend to distribute versions with custom bundle supporting enabled only internally.
