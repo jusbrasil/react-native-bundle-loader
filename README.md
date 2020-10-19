@@ -16,10 +16,13 @@ import BundleLoader, { BundlePrompt } from 'react-native-bundle-loader';
 
 // ...
 
-// You can use the `<BundlePrompt />` modal to provide the remote URL.
+// You can use the component to provide the remote URL:
+function SomeScreen() {
+  return <BundlePrompt />;
+}
 
-// Or call the `load` method:
-BundleLoader.load('https://some-remote-url/ios.bundle.js');
+// Or call the `load` method explictly in your own prompt:
+BundleLoader.load('https://some-remote-url/bundle.js');
 ```
 
 ## Accessing a running react-native packager
