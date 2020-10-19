@@ -42,9 +42,9 @@ Remember to pass the correct params to the metro server:
 
 Example: `https://example.ngrok.io/index.bundle?dev=false&platform=ios&excludeSource=true`
 
-## Disclaimer
+## :warning: Disclaimer
 
-:warning: Be careful about publishing binary versions with `react-native-bundle-loader` supporting in the stores. Malicious code could be injected to your app and affect the users. We *strictly* recommend to distribute versions with custom bundle supporting enabled only internally.
+Be careful about publishing binary versions with `react-native-bundle-loader` supporting in the stores. Malicious code could be injected to your app and affect the users. We *strictly* recommend to distribute versions with custom bundle supporting enabled only internally.
 
 ## Contributing
 
