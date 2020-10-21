@@ -27,29 +27,26 @@ BundleLoader.load('https://some-remote-url/bundle.js');
 
 ## Accessing a running react-native packager
 
-With `react-native-bundle-loader` you can also allow remote bundle accessing of a metro server running at any developer machine.
-To do it, you need to ensure that the app binary running on cellphone already has the `react-native-bundle-loader` lib installed and configured properly.
+With `react-native-bundle-loader` you can also allow remote bundle accessing of a metro server running on a developer's machine.
+Note: the app binary running on cellphone already has the react-native-bundle-loader lib installed and configured properly.
+
 
 ### Exposing the metro server
 
 1. Ensure that a metro server is running on the developer machine (`yarn start`);
-2. Expose the running metro server to the world. You can use any tool for generating a secure tunnel from a public endpoint to the locally running metro server like [ngrok](https://ngrok.com/).
-
-`ngrok http 8081`
-
-3. With `BundlePrompt` (or via `BundleLoader.load()`) pass the URL of the exposed metro server.
-Remember to pass the correct params to the metro server:
+2. Expose the running metro server to the world. You can use any tool for generating a secure tunnel from a public endpoint to the locally running metro server like [ngrok](https://ngrok.com/):  `ngrok http 8081`
+3. With `BundlePrompt` (or via `BundleLoader.load()`) pass the URL of the exposed metro server. Provide the params to the metro server:
   - `dev`: based on the mode the binary was built `true` for development or `false` for release
   - `excludeSource`: `true`
   - `platform`: `ios` or `android` (currently only iOS is supported).
 
-Example: `https://example.ngrok.io/index.bundle?dev=false&platform=ios&excludeSource=true`
+Example URL: `https://example.ngrok.io/index.bundle?dev=false&platform=ios&excludeSource=true`
 
 Every accessing to the metro server will return the updated version of the code :slightly_smiling_face:
 
 ## :warning: Disclaimer
 
-Be careful about publishing binary versions with `react-native-bundle-loader` supporting in the stores. Malicious code could be injected to your app and affect the users. We **strictly** recommend to distribute versions with custom bundle supporting enabled only internally.
+Be careful about publishing binary versions with `react-native-bundle-loader` supporting in the stores. A malicious code could be injected to your app and affect the users. We **strictly** recommend to distribute versions with custom bundle supporting enabled only internally.
 
 ## Contributing
 
