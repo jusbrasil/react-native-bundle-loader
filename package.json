@@ -1,6 +1,6 @@
 {
   "name": "react-native-bundle-loader",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Allows to load remote bundle via http URL.",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
